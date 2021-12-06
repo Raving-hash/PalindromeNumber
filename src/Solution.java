@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 class Solution {
     public boolean isPalindrome(int x) {
@@ -16,11 +17,10 @@ class Solution {
             i++;
         }
         size = rMap.size();
-        for(int n = 0; n < size;n++) {
-            while (rMap.get(n) != rMap.get(size - n - 1)) {
+        for(int n = 0; n < (size+1)/2;n++) {
+            if (!Objects.equals(rMap.get(n), rMap.get(size - n - 1))) {
                 return false;
             }
-            ;
         }
         return true;
     }
